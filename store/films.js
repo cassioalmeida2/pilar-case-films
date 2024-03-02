@@ -20,6 +20,7 @@ export const useFilmsStore = defineStore({
 					let urlMedia = 'https://media.themoviedb.org/t/p/w220_and_h330_face'
 					response.results.forEach(film => {
 						film.poster_path = urlMedia+film.poster_path
+						film.vote_average = Math.ceil(film.vote_average*10)
 					})
 					this.films = [...this.films, ...response.results]
 					this.page = response.page

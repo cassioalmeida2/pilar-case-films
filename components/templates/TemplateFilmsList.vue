@@ -1,8 +1,9 @@
 <template>
 	<div>
+		<h1 class="text-h5 text-primary mb-4"> Filmes Populares </h1>
 		<v-row class="mb-15">
 			<v-col cols="6" sm="4" md="3" lg="2" xl="1" v-for="(film, index) in content" :key="index">
-				<molecule-film-card :imageLazy="film.poster_path" :image="film.poster_path" :title="film.title" :date="film.release_date" />
+				<molecule-film-card :imageLazy="film.poster_path" :image="film.poster_path" :title="film.title" :date="film.release_date" :voteAverage="film.vote_average" />
 			</v-col>
 		</v-row>
 		<div class="text-right mt-5 template-films-list__load-more">
