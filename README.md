@@ -3,6 +3,8 @@
 O servidor será iniciado em `http://localhost:3000`
 <br >
 OBS: A versão do node que foi utilizada para rodar o projeto é a v20.11.1
+<br>
+O projeto está na AWS e pode ser visualizado no link: https://master.d35firwxz5ckif.amplifyapp.com/
 
 ```bash
 # Instalar Dependências do Projeto
