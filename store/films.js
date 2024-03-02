@@ -1,4 +1,3 @@
-// store/index.js
 import { defineStore } from 'pinia'
 
 export const useFilmsStore = defineStore({
@@ -6,6 +5,7 @@ export const useFilmsStore = defineStore({
 
   state: () => ({
     films: [],
+		currentFilm: {},
 		page: 0,
 		totalPages: 0,
 		totalResults: 0,
@@ -35,6 +35,22 @@ export const useFilmsStore = defineStore({
 				}
     	}
 			return true
+    },
+
+    async getFilmById(filmId) {
+			try {
+				let response = await $fetch(`https://api.themoviedb.org/3/movie/${filmId}?language=pt-BR&api_key=f740d51bcd90cbcc19eef79d91965f1e`)
+				this.error = null
+				let urlMediaBanner = 'https://media.themoviedb.org/t/p/w300_and_h450_bestv2'
+				response.poster_path = urlMediaBanner+response.poster_path
+				response.vote_average = Math.ceil(response.vote_average*10)
+				this.currentFilm = response
+				return response
+			} catch (error) {
+				console.error('Erro ao buscar dados:', error)
+				this.error = 'Erro ao buscar dados.'
+				throw error
+			}
     },
   }
 })

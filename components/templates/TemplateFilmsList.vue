@@ -3,7 +3,7 @@
 		<h1 class="text-h5 text-primary mb-4"> Filmes Populares </h1>
 		<v-row class="mb-15">
 			<v-col cols="6" sm="4" md="3" lg="2" xl="1" v-for="(film, index) in content" :key="index">
-				<molecule-film-card :imageLazy="film.poster_path" :image="film.poster_path" :title="film.title" :date="film.release_date" :voteAverage="film.vote_average" />
+				<molecule-film-card :imageLazy="film.poster_path" :image="film.poster_path" :title="film.title" :date="film.release_date" :voteAverage="film.vote_average" @click="goToFilmDetails(film.id)"/>
 			</v-col>
 		</v-row>
 		<div class="text-right mt-5 template-films-list__load-more">
@@ -17,7 +17,7 @@
 	import AtomButton from '@/components/atoms/AtomButton.vue'
 	import { defineEmits } from 'vue'
 	
-	const emit = defineEmits(['loadMore'])
+	const emit = defineEmits(['loadMore', 'filmDetails'])
 
 	const props = defineProps({
 		content: {
@@ -29,6 +29,10 @@
 
 	const loadMore = () => {
 		emit('loadMore')
+	}
+
+	const goToFilmDetails = (filmId) => {
+		emit('filmDetails', filmId)
 	}
 </script>
 

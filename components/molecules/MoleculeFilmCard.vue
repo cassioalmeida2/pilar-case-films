@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<atom-card>
+	<div class="molecule-film-card">
+		<atom-card class="molecule-film-card__card-image">
 			<template #header>
 				<atom-image :image="image" :key="id" :imageLazy="lazyImageDefault" />
 				<atom-circular-progress :value="voteAverage" class="molecule-film-card__vote" />
@@ -57,6 +57,12 @@
 
 <style lang="scss" scoped>
 	.molecule-film-card {
+		cursor: pointer;
+		:hover {
+			opacity: 0.8;
+			transition: 0.1s;
+		}
+
 		&__vote {
 			position:absolute;
 			bottom:3px;
