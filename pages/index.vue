@@ -20,12 +20,16 @@
 	}
 	
 	const fetchData = async () => {
-		try {
-			const currentPage = 1
-			await store.fetchFilms(currentPage)
+		if(store?.films?.length <= 0) {
+			try {
+				const currentPage = 1
+				await store.fetchFilms(currentPage)
+				films.value = store.films
+			} catch (error) {
+				console.error('Erro ao buscar dados:', error)
+			}
+		}else {
 			films.value = store.films
-		} catch (error) {
-			console.error('Erro ao buscar dados:', error)
 		}
 	}
 
