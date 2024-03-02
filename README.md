@@ -2,7 +2,7 @@
 
 O servidor será iniciado em `http://localhost:3000`
 <br >
-OBS: A versão do node utilizada para rodar o projeto é v20.11.1
+OBS: A versão do node que foi utilizada para rodar o projeto é a v20.11.1
 
 ```bash
 # Instalar Dependências do Projeto
