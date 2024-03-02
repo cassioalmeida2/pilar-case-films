@@ -1,0 +1,15 @@
+@import "~/assets/styles/variables.scss";
+
+@font-face {
+	font-family: 'Inter';
+	src: url('~/assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Inter Display';
+	src: url('~/assets/fonts/InterDisplay-Regular.ttf') format('truetype');
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+}
